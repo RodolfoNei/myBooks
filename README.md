@@ -6,4 +6,4 @@
 
 - HTML5, CSS3 e JavaScript
 - Python com Django
-- MongoDB com Mongoose
+- SQLite Database
