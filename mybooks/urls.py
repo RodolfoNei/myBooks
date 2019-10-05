@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.urls import include
 from django.urls import path
 
 urlpatterns = [
@@ -22,4 +23,11 @@ urlpatterns = [
 
 urlpatterns += [
     path('catalog/', include('catalog.urls'))
+]
+
+# Add URL maps to redirect the base URL to our application
+from django.views.generic import RedirectView
+
+urlpatterns += [
+    path('', RedirectView.as_view(url='/catalog/', permanent=True))
 ]
