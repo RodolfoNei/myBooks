@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+import uuid
 
 class Genre(models.Model):
     """Model representando um gênero de livro."""
@@ -11,6 +12,8 @@ class Genre(models.Model):
 
 class Book(models.Model):
     """Model representando um livro."""
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='ID única desse livro')
+
     title = models.Charfield(max_length=200)
 
     # Por enquanto considerar que cada livro tenha apenas um autor
@@ -20,10 +23,24 @@ class Book(models.Model):
 
     genre = models.ManyToManyField(Genre, help_text='Selecione um gênero para esse livro')
 
+    READ_STATUS = {
+        ('w', 'Want to read'),
+        ('a', 'Already read'),
+        ('r', 'Reading now')
+    }
+
+    status = models.CharField(
+        max_length=1,
+        choices=READ_STATUS,
+        blank=True,
+        default='w'
+        help_text='Status'
+    )
+
     def __str__(self):
         """String para representar o objeto do Model."""
         return self.title
 
     def get_absolute_url(self):
-        """Retorna a url para acessar os detalhes desse livro."""
+        """Retorna a url para acessar os detalhes do livro."""
         return reverse('book-detail', args=[str(self.id)])
