@@ -14,7 +14,7 @@ class Book(models.Model):
     """Model representando um livro."""
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='ID única desse livro')
 
-    title = models.Charfield(max_length=200)
+    title = models.CharField(max_length=200)
 
     # Por enquanto considerar que cada livro tenha apenas um autor
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
@@ -33,7 +33,7 @@ class Book(models.Model):
         max_length=1,
         choices=READ_STATUS,
         blank=True,
-        default='w'
+        default='w',
         help_text='Status'
     )
 
