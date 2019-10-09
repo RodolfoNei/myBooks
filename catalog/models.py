@@ -44,3 +44,21 @@ class Book(models.Model):
     def get_absolute_url(self):
         """Retorna a url para acessar os detalhes do livro."""
         return reverse('book-detail', args=[str(self.id)])
+
+class Author(models.Model):
+    """Model representando um autor."""
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    date_of_birth = models.DateField(null=True, blank=True)
+    date_of_death = models.DateField('Morto', null=True, blank=True)
+
+    class Meta:
+        ordering = ['last_name', 'first_name']
+
+    def get_absolute_url(self):
+        """Retorna a url para acessar uma instância do autor em particular."""
+        return reverse('author-detail', args[str(self.id)])
+
+    def __str__(self):
+        """String para representar o objeto do Model."""
+        return f'{self.last_name}, {self.first_name}'
