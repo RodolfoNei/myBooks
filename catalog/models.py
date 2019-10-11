@@ -21,6 +21,9 @@ class Book(models.Model):
 
     summary = models.TextField(max_length=1000, help_text='Insira uma sinopse do livro')
 
+    # Por enquanto representando o ano com uma String
+    year = models.CharField(max_length=200)
+
     genre = models.ManyToManyField(Genre, help_text='Selecione um gênero para esse livro')
 
     READ_STATUS = {
