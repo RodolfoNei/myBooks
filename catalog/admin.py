@@ -10,6 +10,7 @@ class AuthorAdmin(admin.ModelAdmin):
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'year', 'status')
+    list_filter = ('status', 'year')
 
 admin.site.register(Genre)
 
