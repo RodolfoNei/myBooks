@@ -10,6 +10,7 @@ Aplicação Web que cria e gerencia um catálogo pessoal de livros que o usuári
 
 ## Em desenvolvimento:
 
+- Front-end com React
 - Login
 - Sistema de resenhas de livros lidos
 - Sistema de avaliação de livros lidos
