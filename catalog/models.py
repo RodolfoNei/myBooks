@@ -60,7 +60,7 @@ class Author(models.Model):
 
     def get_absolute_url(self):
         """Retorna a url para acessar uma instância do autor em particular."""
-        return reverse('author-detail', args[str(self.id)])
+        return reverse('author-detail', args=[str(self.id)])
 
     def __str__(self):
         """String para representar o objeto do Model."""
