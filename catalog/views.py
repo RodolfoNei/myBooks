@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from catalog.models import Book, Author, Genre
 
@@ -43,4 +44,8 @@ class AuthorDetailView(generic.DetailView):
 class AuthorCreate(CreateView):
     model = Author
     fields = '__all__'
+
+class AuthorDelete(DeleteView):
+     model = Author
+     success_url = reverse_lazy('authors')
 

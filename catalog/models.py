@@ -53,7 +53,7 @@ class Author(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     date_of_birth = models.DateField(null=True, blank=True)
-    date_of_death = models.DateField('Data of Death', null=True, blank=True)
+    date_of_death = models.DateField('Date of Death', null=True, blank=True)
 
     class Meta:
         ordering = ['last_name', 'first_name']
@@ -61,6 +61,10 @@ class Author(models.Model):
     def get_absolute_url(self):
         """Retorna a url para acessar uma instância do autor em particular."""
         return reverse('author-detail', args=[str(self.id)])
+
+    def get_delete_url(self):
+        """Retorna a url para acessar uma instância do autor em particular."""
+        return reverse('author_delete', args=[str(self.id)])
 
     def __str__(self):
         """String para representar o objeto do Model."""
