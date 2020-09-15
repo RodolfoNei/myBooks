@@ -35,6 +35,10 @@ class BookListView(generic.ListView):
 class BookDetailView(generic.DetailView):
     model = Book
 
+class BookCreate(CreateView):
+    model = Book
+    fields = '__all__'
+
 class AuthorListView(generic.ListView):
     model = Author
 
