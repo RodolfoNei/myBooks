@@ -12,19 +12,19 @@ class Genre(models.Model):
 
 class Book(models.Model):
     """Model representando um livro."""
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='ID única desse livro')
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
 
     title = models.CharField(max_length=200)
 
     # Por enquanto considerar que cada livro tenha apenas um autor
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
 
-    summary = models.TextField(max_length=1000, help_text='Insira uma sinopse do livro')
+    summary = models.TextField(max_length=1000)
 
     # Por enquanto representando o ano com uma String
     year = models.CharField(max_length=200, null=True, blank=True)
 
-    genre = models.ManyToManyField(Genre, help_text='Selecione um gênero para esse livro')
+    genre = models.ManyToManyField(Genre)
 
     READ_STATUS = {
         ('w', 'Want to read'),
@@ -36,8 +36,7 @@ class Book(models.Model):
         max_length=1,
         choices=READ_STATUS,
         blank=True,
-        default='w',
-        help_text='Status'
+        default='w'
     )
 
     def __str__(self):
