@@ -47,6 +47,10 @@ class Book(models.Model):
         """Retorna a url para acessar os detalhes do livro."""
         return reverse('book-detail', args=[str(self.id)])
 
+    def get_delete_url(self):
+        """Retorna a url para acessar uma instância do livro em particular."""
+        return reverse('book_delete', args=[str(self.id)])
+
 class Author(models.Model):
     """Model representando um autor."""
     first_name = models.CharField(max_length=100)
@@ -60,7 +64,7 @@ class Author(models.Model):
     def get_absolute_url(self):
         """Retorna a url para acessar uma instância do autor em particular."""
         return reverse('author-detail', args=[str(self.id)])
-
+    
     def get_delete_url(self):
         """Retorna a url para acessar uma instância do autor em particular."""
         return reverse('author_delete', args=[str(self.id)])
