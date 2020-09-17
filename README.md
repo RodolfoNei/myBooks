@@ -3,7 +3,6 @@
 ## ToDos:
 
 - CRUD autores:
-    - Update de um autor
     - Tratar o delete de um autor com livros cadastrados de sua autoria
 
 - CRUD livros:

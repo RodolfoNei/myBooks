@@ -65,8 +65,12 @@ class Author(models.Model):
         """Retorna a url para acessar uma instância do autor em particular."""
         return reverse('author-detail', args=[str(self.id)])
     
+    def get_update_url(self):
+        """Retorna a url para atualizar uma instância do autor em particular."""
+        return reverse('author_update', args=[str(self.id)])
+
     def get_delete_url(self):
-        """Retorna a url para acessar uma instância do autor em particular."""
+        """Retorna a url para deletar uma instância do autor em particular."""
         return reverse('author_delete', args=[str(self.id)])
 
     def __str__(self):
