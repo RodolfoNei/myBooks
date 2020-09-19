@@ -46,6 +46,10 @@ class Book(models.Model):
     def get_absolute_url(self):
         """Retorna a url para acessar os detalhes do livro."""
         return reverse('book-detail', args=[str(self.id)])
+    
+    def get_update_url(self):
+        """Retorna a url para atualizar uma instância do autor em particular."""
+        return reverse('book_update', args=[str(self.id)])
 
     def get_delete_url(self):
         """Retorna a url para acessar uma instância do livro em particular."""
