@@ -7,7 +7,6 @@
 
 - CRUD livros:
     - Update de um livro
-    - Ler e atualizar o status do livro no Book list
 
 - CRUD gêneros:
     - Criação de um gênero novo

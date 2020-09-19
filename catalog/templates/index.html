@@ -8,8 +8,8 @@
   <p>Welcome to myBooks, your personal books CMS.</p>
   <a class="btn btn-primary" href="{% url 'author_create' %}">Register new author</a>
   <a class="btn btn-secondary" href="{% url 'book_create' %}">Register new book</a>
-  <h2>Dynamic content</h2>
-  <p>The catalog has the following record counts:</p>
+
+  <p class="mt-5">The catalog has the following record counts:</p>
   <ul>
     <li><strong>Books Total:</strong> {{ num_books }}</li>
     <li><strong>Authors:</strong> {{ num_authors }}</li>
