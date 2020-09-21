@@ -12,5 +12,6 @@ urlpatterns = [
     path('author/<str:pk>', views.AuthorDetailView.as_view(), name='author-detail'),
     path('author/create/', views.AuthorCreate.as_view(), name='author_create'),
     path('author/<str:pk>/update/', views.AuthorUpdate.as_view(), name='author_update'),
-    path('author/<str:pk>/delete/', views.AuthorDelete.as_view(), name='author_delete')
+    path('author/<str:pk>/delete/', views.AuthorDelete.as_view(), name='author_delete'),
+    path('genre/create/', views.GenreCreate.as_view(), name='genre_create'),
 ]

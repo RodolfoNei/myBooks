@@ -65,3 +65,7 @@ class AuthorDelete(DeleteView):
      model = Author
      success_url = reverse_lazy('authors')
 
+class GenreCreate(CreateView):
+    model = Genre
+    fields = '__all__'
+    success_url = reverse_lazy('index')

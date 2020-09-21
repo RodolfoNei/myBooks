@@ -6,7 +6,6 @@
     - Tratar o delete de um autor com livros cadastrados de sua autoria
 
 - CRUD gêneros:
-    - Criação de um gênero novo
     - Criação de um gênero novo dentro do form do livro
     - Delete de gênero
     - Atualizar os gêneros relacionados a um livro
