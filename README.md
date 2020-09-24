@@ -3,11 +3,11 @@
 ## ToDos:
 
 - CRUD autores:
+    - Criação de um autor dentro do form do livro
     - Tratar o delete de um autor com livros cadastrados de sua autoria
 
 - CRUD gêneros:
     - Criação de um gênero novo dentro do form do livro
-    - Delete de gênero
     - Atualizar os gêneros relacionados a um livro
 
 - Adicionar autor novo dentro do form do livro

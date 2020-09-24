@@ -10,6 +10,10 @@ class Genre(models.Model):
         """String para representar o objeto do Model."""
         return self.name
 
+    def get_delete_url(self):
+        """Retorna a url para acessar uma instância do gênero em particular."""
+        return reverse('genre_delete', args=[str(self.id)])
+
 class Book(models.Model):
     """Model representando um livro."""
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)

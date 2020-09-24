@@ -69,3 +69,10 @@ class GenreCreate(CreateView):
     model = Genre
     fields = '__all__'
     success_url = reverse_lazy('index')
+
+class GenreListView(generic.ListView):
+    model = Genre
+
+class GenreDelete(DeleteView):
+     model = Genre
+     success_url = reverse_lazy('index')
