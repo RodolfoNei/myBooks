@@ -10,6 +10,8 @@
     - Criação de um gênero novo dentro do form do livro
     - Atualizar os gêneros relacionados a um livro
 
+- CRUD reviews: implementar opção de resenhas de livros lidos
+
 - Adicionar autor novo dentro do form do livro
 
 - Adicionar mais informações no perfil do autor
