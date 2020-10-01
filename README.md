@@ -19,6 +19,8 @@
 - Adicionar livros cadastrados no perfil do autor
 
 - Autenticação de usuário e permissões
+    - login
+    - criar usuário
 
 - Arrumar links de 'Voltar' nos formulários
 
