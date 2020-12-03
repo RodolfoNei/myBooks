@@ -2,8 +2,10 @@ from django.shortcuts import render
 from django.views import generic
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.decorators import login_required
 from catalog.models import Book, Author, Genre
 
+@login_required
 def index(request):
     """View function para a home page do site."""
 
