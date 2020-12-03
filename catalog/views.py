@@ -3,6 +3,7 @@ from django.views import generic
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from catalog.models import Book, Author, Genre
 
 @login_required
@@ -31,50 +32,50 @@ def index(request):
     # Renderizar o template HTML index.html com os dados da var context
     return render(request, 'index.html', context=context)
 
-class BookListView(generic.ListView):
+class BookListView(LoginRequiredMixin, generic.ListView):
     model = Book
 
-class BookDetailView(generic.DetailView):
+class BookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Book
 
-class BookCreate(CreateView):
-    model = Book
-    fields = ['title', 'author', 'summary', 'year', 'genre', 'status']
-
-class BookUpdate(UpdateView):
+class BookCreate(LoginRequiredMixin, CreateView):
     model = Book
     fields = ['title', 'author', 'summary', 'year', 'genre', 'status']
 
-class BookDelete(DeleteView):
+class BookUpdate(LoginRequiredMixin, UpdateView):
+    model = Book
+    fields = ['title', 'author', 'summary', 'year', 'genre', 'status']
+
+class BookDelete(LoginRequiredMixin, DeleteView):
      model = Book
      success_url = reverse_lazy('books')
 
-class AuthorListView(generic.ListView):
+class AuthorListView(LoginRequiredMixin, generic.ListView):
     model = Author
 
-class AuthorDetailView(generic.DetailView):
+class AuthorDetailView(LoginRequiredMixin, generic.DetailView):
     model = Author
 
-class AuthorCreate(CreateView):
+class AuthorCreate(LoginRequiredMixin, CreateView):
     model = Author
     fields = '__all__'
 
-class AuthorUpdate(UpdateView):
+class AuthorUpdate(LoginRequiredMixin, UpdateView):
     model = Author
     fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death']
 
-class AuthorDelete(DeleteView):
+class AuthorDelete(LoginRequiredMixin, DeleteView):
      model = Author
      success_url = reverse_lazy('authors')
 
-class GenreCreate(CreateView):
+class GenreCreate(LoginRequiredMixin, CreateView):
     model = Genre
     fields = '__all__'
     success_url = reverse_lazy('index')
 
-class GenreListView(generic.ListView):
+class GenreListView(LoginRequiredMixin, generic.ListView):
     model = Genre
 
-class GenreDelete(DeleteView):
+class GenreDelete(LoginRequiredMixin, DeleteView):
      model = Genre
      success_url = reverse_lazy('index')
