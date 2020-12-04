@@ -35,6 +35,15 @@ def index(request):
 class BookListView(LoginRequiredMixin, generic.ListView):
     model = Book
 
+class BooksByUserListView(LoginRequiredMixin,generic.ListView):
+    """Generic class-based view listing books on loan to current user."""
+    model = Book
+    template_name ='catalog/book_list_owned_user.html'
+    paginate_by = 10
+    
+    def get_queryset(self):
+        return Book.objects.filter(owner=self.request.user).order_by('title')
+
 class BookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Book
 

@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 import uuid
 
 class Genre(models.Model):
@@ -29,6 +30,8 @@ class Book(models.Model):
     year = models.CharField(max_length=200, null=True, blank=True)
 
     genre = models.ManyToManyField(Genre)
+
+    owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
 
     READ_STATUS = {
         ('w', 'Want to read'),
