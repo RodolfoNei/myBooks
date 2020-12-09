@@ -16,9 +16,6 @@ class Genre(models.Model):
         return reverse('genre_delete', args=[str(self.id)])
 
 class Book(models.Model):
-    
-    class Meta:
-        permissions = (("perm_test", "Permission test"),)
 
     """Model representando um livro."""
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)

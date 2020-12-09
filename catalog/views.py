@@ -33,11 +33,13 @@ def index(request):
     # Renderizar o template HTML index.html com os dados da var context
     return render(request, 'index.html', context=context)
 
-class BookListView(LoginRequiredMixin, generic.ListView):
+class BookListView(PermissionRequiredMixin, LoginRequiredMixin, generic.ListView):
+    permission_required = 'catalog.view_book'
     model = Book
 
-class BooksByUserListView(LoginRequiredMixin,generic.ListView):
+class BooksByUserListView(PermissionRequiredMixin, LoginRequiredMixin,generic.ListView):
     """Generic class-based view listing books on loan to current user."""
+    permission_required = 'catalog.view_book'
     model = Book
     template_name ='catalog/book_list_owned_user.html'
     paginate_by = 10
@@ -45,21 +47,24 @@ class BooksByUserListView(LoginRequiredMixin,generic.ListView):
     def get_queryset(self):
         return Book.objects.filter(owner=self.request.user).order_by('title')
 
-class BookDetailView(LoginRequiredMixin, generic.DetailView):
+class BookDetailView(PermissionRequiredMixin, LoginRequiredMixin, generic.DetailView):
+    permission_required = 'catalog.view_book'
     model = Book
 
-class BookCreate(LoginRequiredMixin, CreateView):
+class BookCreate(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
+    permission_required = 'catalog.add_book'
     model = Book
     fields = ['title', 'author', 'summary', 'year', 'genre', 'status']
 
-class BookUpdate(LoginRequiredMixin, UpdateView):
+class BookUpdate(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
+    permission_required = 'catalog.change_book'
     model = Book
     fields = ['title', 'author', 'summary', 'year', 'genre', 'status']
 
 class BookDelete(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
-     model = Book
-     success_url = reverse_lazy('books')
-     permission_required = 'catalog.can_delete_book'
+    permission_required = 'catalog.delete_book'
+    model = Book
+    success_url = reverse_lazy('books')
 
 class AuthorListView(LoginRequiredMixin, generic.ListView):
     model = Author
