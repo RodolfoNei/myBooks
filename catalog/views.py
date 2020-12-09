@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import render
 from django.views import generic
 from django.urls import reverse_lazy
@@ -55,9 +56,10 @@ class BookUpdate(LoginRequiredMixin, UpdateView):
     model = Book
     fields = ['title', 'author', 'summary', 'year', 'genre', 'status']
 
-class BookDelete(LoginRequiredMixin, DeleteView):
+class BookDelete(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
      model = Book
      success_url = reverse_lazy('books')
+     permission_required = 'catalog.can_delete_book'
 
 class AuthorListView(LoginRequiredMixin, generic.ListView):
     model = Author
