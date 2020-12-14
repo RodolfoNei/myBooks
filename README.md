@@ -19,8 +19,9 @@
 - Adicionar livros cadastrados no perfil do autor
 
 - Autenticação de usuário e permissões
-    - login
     - criar usuário
+
+- Restringir permissões de CRUDs dos usuários apenas para seus respectivos catálogos
 
 - Arrumar links de 'Voltar' nos formulários
 
