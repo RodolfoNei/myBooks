@@ -30,3 +30,12 @@
 - Sessions
 
 - Internacionalização
+
+## Referências
+- Método Bullet Journal
+- Goodreads
+- Skoob
+- Cabeceira
+- Listography
+- Google Keep
+- Notion
