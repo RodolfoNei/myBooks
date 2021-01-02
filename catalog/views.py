@@ -89,14 +89,17 @@ class AuthorDelete(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
     model = Author
     success_url = reverse_lazy('authors')
 
-class GenreCreate(LoginRequiredMixin, CreateView):
+class GenreCreate(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
+    permission_required = 'catalog.add_genre'
     model = Genre
     fields = '__all__'
     success_url = reverse_lazy('index')
 
-class GenreListView(LoginRequiredMixin, generic.ListView):
+class GenreListView(PermissionRequiredMixin, LoginRequiredMixin, generic.ListView):
+    permission_required = 'catalog.view_genre'
     model = Genre
 
-class GenreDelete(LoginRequiredMixin, DeleteView):
-     model = Genre
-     success_url = reverse_lazy('index')
+class GenreDelete(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
+    permission_required = 'catalog.delete_genre'
+    model = Genre
+    success_url = reverse_lazy('index')

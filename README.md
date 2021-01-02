@@ -12,14 +12,9 @@
 
 - CRUD reviews: implementar opção de resenhas de livros lidos
 
-- Adicionar autor novo dentro do form do livro
-
 - Adicionar mais informações no perfil do autor
 
 - Adicionar livros cadastrados no perfil do autor
-
-- Autenticação de usuário e permissões
-    - criar usuário
 
 - Restringir permissões de CRUDs dos usuários apenas para seus respectivos catálogos
 
