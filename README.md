@@ -22,6 +22,8 @@
 
 - Inserir arte de capa na lista de livros
 
+- Testes automatizados
+
 - Sessions
 
 - Internacionalização
