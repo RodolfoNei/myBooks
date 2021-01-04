@@ -28,6 +28,8 @@
 
 - Internacionalização
 
+- Reestruturar projetos em pastas para Models, Views e Templates
+
 ## Referências
 - Método Bullet Journal
 - Goodreads
