@@ -23,6 +23,8 @@
 - Inserir arte de capa na lista de livros
 
 - Testes automatizados
+    - Models
+        - Book
 
 - Sessions
 
