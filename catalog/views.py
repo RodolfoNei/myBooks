@@ -69,6 +69,7 @@ class BookDelete(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
 class AuthorListView(PermissionRequiredMixin, LoginRequiredMixin, generic.ListView):
     permission_required = 'catalog.view_author'
     model = Author
+    paginate_by = 10
 
 class AuthorDetailView(PermissionRequiredMixin, LoginRequiredMixin, generic.DetailView):
     permission_required = 'catalog.view_author'
