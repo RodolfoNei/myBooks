@@ -50,10 +50,16 @@ class AuthorModelTest(TestCase):
 class BookModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
-
-        test_genre = Genre.objects.create(name='Genre 1')
         # Set up non-modified objects used by all test methods
-        Book.objects.create(title='Book 1', summary='Summary 1')
+        cls.g1 = Genre.objects.create(name='Fantasy')
+
+        cls.b1 = Book.objects.create(
+            title='Book 1', 
+            summary='Summary 1'
+        )
+        cls.b1.genre.add(cls.g1)
+        print(cls.g1)
+        print(cls.b1.genre)
 
     def test_title_label(self):
         book = Book.objects.get(id=1)
